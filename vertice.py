@@ -11,3 +11,6 @@ class Vertice:
 
     def conecta(self, vertice):
         self.adjacentes.add(vertice)
+
+    def desconecta(self, vertice):
+        self.adjacentes.remove(vertice)

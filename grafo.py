@@ -29,9 +29,9 @@ class Grafo:
         v1.conecta(v2)
         v2.conecta(v1)
 
-    # TODO: Implementar
-    def desconecta(self):
-        print()
+    def desconecta(self, v1, v2):
+        v1.desconecta(v2)
+        v2.desconecta(v1)
 
     def ordem(self):  # Complexidade O(1)
         return len(self.V)
