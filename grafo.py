@@ -1,3 +1,4 @@
+import random
 from vertice import Vertice
 
 
@@ -23,7 +24,7 @@ class Grafo:
         self.num_vertices += 1
         self.v.add(Vertice(self.num_vertices))
 
-    # TODO
+    # TODO: Implementar
     def remove_vertice(self):
         print()
 
@@ -31,28 +32,28 @@ class Grafo:
         v1.conecta(v2)
         v2.conecta(v1)
 
-    # TODO
+    # TODO: Implementar
     def desconecta(self):
-        print("To do!")
+        print()
 
-    def ordem(self):
+    def ordem(self):  # Complexidade O(1)
         return len(self.v)
 
-    # TODO
+    # TODO: Implementar
     def vertices(self):
-        print("To do!")
+        print()
 
-    # TODO
+    # TODO: Pesquisar complexidade
     def um_vertice(self):
-        print("To do!")
+        return random.choice(tuple(self.v))
 
-    # TODO
+    # TODO: Implementar
     def adjacentes(self):
-        print("To do!")
+        print()
 
-    # TODO
+    # TODO: Implementar
     def grau(self):
-        print("To do!")
+        print()
 
 
 if __name__ == "__main__":

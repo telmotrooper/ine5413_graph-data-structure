@@ -1,7 +1,7 @@
 class Vertice:
     """Implementação do vértice a ser utilizada com o grafo"""
 
-    numero = None
+    numero = 0
     adjacentes = set()
 
     def __init__(self, numero):
