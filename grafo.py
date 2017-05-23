@@ -11,18 +11,15 @@ class Grafo:
     '''
 
     # Conjuntos
-    v = set()
-    a = set()
-
-    # Contador de vértices
-    num_vertices = 0
+    V = None
+    A = None
 
     def __init__(self):
-        print("Grafo inicializado.")
+        self.V = set()
+        self.A = set()
 
-    def adiciona_vertice(self):  # Complexidade O(1)
-        self.num_vertices += 1
-        self.v.add(Vertice(self.num_vertices))
+    def adiciona_vertice(self, v):  # Complexidade O(1)
+        self.V.add(v)
 
     # TODO: Implementar
     def remove_vertice(self):
@@ -37,27 +34,34 @@ class Grafo:
         print()
 
     def ordem(self):  # Complexidade O(1)
-        return len(self.v)
+        return len(self.V)
 
-    # TODO: Implementar
-    def vertices(self):
-        print()
+    def vertices(self):  # Complexidade O(1)
+        return self.V
 
     # TODO: Pesquisar complexidade
     def um_vertice(self):
-        return random.choice(tuple(self.v))
+        return random.choice(tuple(self.V))
 
-    # TODO: Implementar
-    def adjacentes(self):
-        print()
+    def adjacentes(self, v):
+        return v.adjacentes
 
-    # TODO: Implementar
-    def grau(self):
-        print()
+    def grau(self, v):  # Complexidade O(1)
+        return len(v.adjacentes)
 
 
 if __name__ == "__main__":
     g = Grafo()
-    g.adiciona_vertice()
+    v1 = Vertice()
+    v2 = Vertice()
+    v3 = Vertice()
+    print()
+    g.adiciona_vertice(v1)
+    g.adiciona_vertice(v2)
+    g.adiciona_vertice(v3)
+    print()
+    g.conecta(v1, v2)
+
+    # g.adjacentes()
 
     print("O grafo é de ordem {0}.".format(g.ordem()))

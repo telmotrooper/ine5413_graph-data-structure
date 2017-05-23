@@ -2,11 +2,12 @@ class Vertice:
     """Implementação do vértice a ser utilizada com o grafo"""
 
     numero = 0
-    adjacentes = set()
+    adjacentes = None
 
-    def __init__(self, numero):
-        self.numero = numero
-        print("Vértice {0} adicionado.".format(self.numero))
+    def __init__(self):
+        Vertice.numero += 1  # incrementa o contador de instâncias da classe
+        self.numero = Vertice.numero  # atribui um número a esse vértice
+        self.adjacentes = set()
 
     def conecta(self, vertice):
         self.adjacentes.add(vertice)
