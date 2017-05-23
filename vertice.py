@@ -9,6 +9,10 @@ class Vertice:
         self.numero = Vertice.numero  # atribui um número a esse vértice
         self.adjacentes = set()
 
+    def __str__(self):
+        return "Vértice {0}".format(self.numero)
+        # return "Vértice {0} no endereço {1}".format(self.numero, hex(id(self)))
+
     def conecta(self, vertice):
         self.adjacentes.add(vertice)
 

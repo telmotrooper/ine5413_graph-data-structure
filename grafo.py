@@ -10,26 +10,27 @@ class Grafo:
     https://www.ics.uci.edu/~pattis/ICS-33/lectures/complexitypython.txt
     '''
 
-    # Conjuntos
     V = None
-    A = None
 
     def __init__(self):
         self.V = set()
-        self.A = set()
 
     def adiciona_vertice(self, v):  # Complexidade O(1)
         self.V.add(v)
 
-    # TODO: Implementar
-    def remove_vertice(self):
-        print()
+    def remove_vertice(self, v):  # Complexidade O(n) :'(
+        # remove todas as arestas do vértice
+        for vertice in v.adjacentes:
+            vertice.desconecta(v)
+
+        # remove o vértice do grafo
+        self.V.remove(v)
 
     def conecta(self, v1, v2):  # Complexidade O(1)
         v1.conecta(v2)
         v2.conecta(v1)
 
-    def desconecta(self, v1, v2):
+    def desconecta(self, v1, v2):  # Complexidade O(1)
         v1.desconecta(v2)
         v2.desconecta(v1)
 
@@ -39,11 +40,10 @@ class Grafo:
     def vertices(self):  # Complexidade O(1)
         return self.V
 
-    # TODO: Pesquisar complexidade
-    def um_vertice(self):
+    def um_vertice(self):    # Complexidade O(n) porque é aleatório
         return random.choice(tuple(self.V))
 
-    def adjacentes(self, v):
+    def adjacentes(self, v):  # Complexidade O(1)
         return v.adjacentes
 
     def grau(self, v):  # Complexidade O(1)
@@ -55,13 +55,48 @@ if __name__ == "__main__":
     v1 = Vertice()
     v2 = Vertice()
     v3 = Vertice()
-    print()
+    v4 = Vertice()
+    v5 = Vertice()
+
     g.adiciona_vertice(v1)
     g.adiciona_vertice(v2)
     g.adiciona_vertice(v3)
-    print()
-    g.conecta(v1, v2)
+    g.adiciona_vertice(v4)
+    g.adiciona_vertice(v5)
 
-    # g.adjacentes()
+    g.conecta(v1, v2)
+    g.conecta(v1, v3)
+    g.conecta(v1, v5)
+    g.conecta(v2, v4)
+    g.conecta(v3, v5)
+
+    for vertice in g.adjacentes(v1):
+        print("{0} é adjacente a {1}.".format(v1, vertice))
+
+    print()
+
+    for vertice in g.adjacentes(v2):
+        print("{0} é adjacente a {1}.".format(v2, vertice))
+
+    print()
+
+    g.desconecta(v1, v2)
+
+    for vertice in g.adjacentes(v1):
+        print("{0} é adjacente a {1}.".format(v1, vertice))
+
+    print()
+
+    for vertice in g.adjacentes(v5):
+        print("{0} é adjacente a {1}.".format(v5, vertice))
+
+    print()
+
+    g.remove_vertice(v1)
+
+    for vertice in g.adjacentes(v5):
+        print("{0} é adjacente a {1}.".format(v5, vertice))
+
+    print()
 
     print("O grafo é de ordem {0}.".format(g.ordem()))
