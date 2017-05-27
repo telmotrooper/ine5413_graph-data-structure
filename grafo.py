@@ -87,20 +87,68 @@ if __name__ == "__main__":
     g.conecta(v3, v6)
     g.conecta(v3, v7)
 
-    print("Vértices adjacentes à v3: ", end="")
-    for vertice in g.adjacentes(v3):
+    print("-" * 100)
+
+    print("Vértices antecessores de v1: ", end="")
+    for vertice in g.antecessores(v1):
         print(str(vertice) + " ", end="")
 
     print()
 
-    print("Vértices antecessores à v3: ", end="")
+    print("Vértices sucessores de v1: ", end="")
+    for vertice in g.sucessores(v1):
+        print(str(vertice) + " ", end="")
+
+    print("\n" + "-" * 100)
+
+    print("Vértices antecessores de v3: ", end="")
     for vertice in g.antecessores(v3):
         print(str(vertice) + " ", end="")
 
     print()
 
-    print("Vértices sucessores à v3: ", end="")
+    print("Vértices sucessores de v3: ", end="")
     for vertice in g.sucessores(v3):
         print(str(vertice) + " ", end="")
 
+    print("\n" + "-"*100)
+
+    print("Vértices sucessores de v6: ", end="")
+    for vertice in g.sucessores(v6):
+        print(str(vertice) + " ", end="")
+
+    print()
+
+    print("Vértices antecessores de v6: ", end="")
+    for vertice in g.antecessores(v6):
+        print(str(vertice) + " ", end="")
+
+    print("\n" + "-" * 100)
+
     g.remove_vertice(v3)
+    print("O vértice v3 foi removido.")
+    print("-"*100)
+
+    print("Vértices antecessores de v1: ", end="")
+    for vertice in g.antecessores(v1):
+        print(str(vertice) + " ", end="")
+
+    print()
+
+    print("Vértices sucessores de v1: ", end="")
+    for vertice in g.sucessores(v1):
+        print(str(vertice) + " ", end="")
+
+    print("\n" + "-" * 100)
+
+    print("Vértices sucessores de v6: ", end="")
+    for vertice in g.sucessores(v6):
+        print(str(vertice) + " ", end="")
+
+    print()
+
+    print("Vértices antecessores de v6: ", end="")
+    for vertice in g.antecessores(v6):
+        print(str(vertice) + " ", end="")
+
+    print("\n" + "-" * 100)
