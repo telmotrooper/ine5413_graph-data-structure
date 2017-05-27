@@ -18,7 +18,7 @@ class Grafo:
     def adiciona_vertice(self, v):  # Complexidade O(1)
         self.V.add(v)
 
-    def remove_vertice(self, v):  # Complexidade O(n) :'(
+    def remove_vertice(self, v):  # Complexidade O(n)
         # remove todas as arestas do vértice
         for vertice in v.adjacentes:
             vertice.desconecta(v)
@@ -40,8 +40,10 @@ class Grafo:
     def vertices(self):  # Complexidade O(1)
         return self.V
 
-    def um_vertice(self):    # Complexidade O(n) porque é aleatório
-        return random.choice(tuple(self.V))
+    def um_vertice(self):  # Complexidade O(1)
+        temp = self.V.pop()
+        self.V.add(temp)
+        return temp
 
     def adjacentes(self, v):  # Complexidade O(1)
         return v.adjacentes
@@ -100,3 +102,13 @@ if __name__ == "__main__":
     print()
 
     print("O grafo é de ordem {0}.".format(g.ordem()))
+
+    print()
+
+    for vertice in g.V:
+        print(vertice)
+
+    print("Qualquer: {0}".format(g.um_vertice()))
+
+    for vertice in g.V:
+        print(vertice)
