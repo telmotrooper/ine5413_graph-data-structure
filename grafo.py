@@ -25,11 +25,9 @@ class Grafo:
 
     def conecta(self, v1, v2):  # Complexidade O(1)
         v1.conecta(v2)
-        # v2.conecta(v1)
 
     def desconecta(self, v1, v2):  # Complexidade O(1)
         v1.desconecta(v2)
-        # v2.desconecta(v1)
 
     def ordem(self):  # Complexidade O(1)
         return len(self.V)
@@ -42,8 +40,14 @@ class Grafo:
         self.V.add(temp)
         return temp
 
-    def adjacentes(self, v):  # Complexidade O(1)
-        return v.adjacentes
+    def adjacentes(self, v):  # Complexidade O(n)
+        return v.sucessores.union(v.antecessores)
+
+    def sucessores(self, v):  # Complexidade O(1)
+        return v.sucessores
+
+    def antecessores(self, v):  # Complexidade O(1)
+        return v.antecessores
 
     def grau(self, v):  # Complexidade O(1)
         return len(v.sucessores) + len(v.antecessores)
