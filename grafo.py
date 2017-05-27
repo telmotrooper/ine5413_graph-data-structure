@@ -46,7 +46,13 @@ class Grafo:
         return v.adjacentes
 
     def grau(self, v):  # Complexidade O(1)
-        return len(v.adjacentes)
+        return len(v.sucessores) + len(v.antecessores)
+
+    def grau_de_emissao(self, v):  # Complexidade O(1)
+        return len(v.sucessores)
+
+    def grau_de_recepcao(self, v):  # Complexidade O(1)
+        return len(v.antecessores)
 
 
 if __name__ == "__main__":
