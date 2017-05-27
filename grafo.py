@@ -1,4 +1,3 @@
-import random
 from vertice import Vertice
 
 
@@ -19,20 +18,18 @@ class Grafo:
         self.V.add(v)
 
     def remove_vertice(self, v):  # Complexidade O(n)
-        # remove todas as arestas do vértice
-        for vertice in v.adjacentes:
+        for vertice in v.adjacentes:  # remove todas as arestas do vértice
             vertice.desconecta(v)
 
-        # remove o vértice do grafo
-        self.V.remove(v)
+        self.V.remove(v)  # remove o vértice do grafo
 
     def conecta(self, v1, v2):  # Complexidade O(1)
         v1.conecta(v2)
-        v2.conecta(v1)
+        # v2.conecta(v1)
 
     def desconecta(self, v1, v2):  # Complexidade O(1)
         v1.desconecta(v2)
-        v2.desconecta(v1)
+        # v2.desconecta(v1)
 
     def ordem(self):  # Complexidade O(1)
         return len(self.V)
