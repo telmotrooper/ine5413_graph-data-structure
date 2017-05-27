@@ -14,8 +14,8 @@ class Vertice:
         self.antecessores = set()
 
     def __str__(self):
-        # return "Vértice {0}".format(self.numero)
-        return "Vértice {0} no endereço {1}".format(self.numero, hex(id(self)))
+        return "Vértice {0}".format(self.numero)
+        # return "Vértice {0} no endereço {1}".format(self.numero, hex(id(self)))
 
     def conecta(self, vertice):
         self.sucessores.add(vertice)
