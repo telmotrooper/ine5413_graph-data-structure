@@ -3,14 +3,16 @@ class Vertice:
 
     numero = 0  # contador estático
     etiqueta = None  # permite dar um nome ao vértice diferente do nome padrão
+    auxiliar = None  # permite adicionar informações auxiliares ao vértice
 
     sucessores = None
     antecessores = None
 
-    def __init__(self, etiqueta=None):
+    def __init__(self, etiqueta=None, auxiliar=None):
         Vertice.numero += 1  # incrementa o contador de instâncias da classe
         self.numero = Vertice.numero  # atribui um número a esse vértice
         self.etiqueta = etiqueta
+        self.auxiliar = auxiliar
 
         self.sucessores = set()
         self.antecessores = set()
