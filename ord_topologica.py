@@ -21,12 +21,12 @@ class OrdenacaoTopologica:
                 self.S.add(vertice)
 
         while self.S:  # enquanto S é não vazio
-            n = self.S.pop()  # remova um vértice n de S
-            self.L.append(n)  # insira n em L
+            n = self.S.pop()  # remove um vértice n de S
+            self.L.append(n)  # insire n em L
 
             for m in n.sucessores.copy():
                 n.desconecta(m)  # remove a aresta do vértice
-                self.restauracao[n] = m
+                self.restauracao[n] = m  # anota a remoção para desfazê-la depois
                 if not m.antecessores:
                     self.S.add(m)
 
