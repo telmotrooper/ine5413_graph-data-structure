@@ -1,6 +1,3 @@
-from dados import *
-
-
 class OrdenacaoTopologica:
     """Implementação do algoritmo de Kahn para ordenação topológica"""
 
@@ -13,7 +10,7 @@ class OrdenacaoTopologica:
     S = None
     ciclos = False
 
-    def __init__(self):
+    def __init__(self, g):
         self.L = list()  # lista que irá conter os elementos ordenados
         self.S = set()  # conjunto que irá conter todos os vértices sem arestas de entrada
 
@@ -30,17 +27,14 @@ class OrdenacaoTopologica:
                 if not m.antecessores:
                     self.S.add(m)
 
-        # checa se o grafo contém ciclos
+        # checa se o grafo contém ciclos em O(n)
         for vertice in g.V:
             if vertice.sucessores or vertice.antecessores:
                 self.ciclos = True
                 break
 
-if __name__ == "__main__":
-    ordem = OrdenacaoTopologica()
-
-    if ordem.ciclos:
-        print("O grafo contém pelo menos um ciclo, logo é impossível obter uma ordenação topológica válida.")
-    else:
-        for vertice in ordem.L:
-            print(vertice)
+        if self.ciclos:
+            print("O grafo contém pelo menos um ciclo, logo é impossível obter uma ordenação topológica válida.")
+        else:
+            for vertice in self.L:
+                print(vertice)
