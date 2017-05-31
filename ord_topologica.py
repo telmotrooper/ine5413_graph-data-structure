@@ -12,20 +12,25 @@ class OrdenacaoTopologica:
     S = None
 
     def __init__(self):
-        L = list()  # lista que irá conter os elementos ordenados
-        S = set()  # conjunto de todos os vértices sem arestas de entrada
+        self.L = list()  # lista que irá conter os elementos ordenados
+        self.S = set()  # conjunto que irá conter todos os vértices sem arestas de entrada
 
-        for materia in g.V:
-            if not materia.antecessores:  # se a matéria não tiver pré-requisito
-                S.add(materia)
+        for vertice in g.V:
+            if not vertice.antecessores:  # se o vértice não tiver antecessores
+                self.S.add(vertice)
 
-        while S:  # enquanto S é não vazio
-            n = S.pop()  # remova um nodo n de S
-            L.append(n)  # insira n em L
+        while self.S:  # enquanto S é não vazio
+            n = self.S.pop()  # remova um vértice n de S
+            self.L.append(n)  # insira n em L
 
-            for vertice in S
-
+            for m in n.sucessores.copy():
+                n.desconecta(m)
+                if not m.antecessores:
+                    self.S.add(m)
 
 
 if __name__ == "__main__":
-    OrdenacaoTopologica()
+    ordem = OrdenacaoTopologica()
+
+    for vertice in ordem.L:
+        print(vertice)
