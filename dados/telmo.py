@@ -10,7 +10,6 @@ MTM7174 = Vertice("Cálculo B para Computação", 4)
 # Fase 3
 INE5409 = Vertice("Cálculo Numérico para Computação", 4)
 
-
 # Fase 4
 INE5412 = Vertice("Sistemas Operacionais I", 4)
 INE5413 = Vertice("Grafos", 4)
