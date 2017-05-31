@@ -1,5 +1,6 @@
 from dados import *
 
+
 class OrdenacaoTopologica:
     """Implementação do algoritmo de Kahn para ordenação topológica"""
 
