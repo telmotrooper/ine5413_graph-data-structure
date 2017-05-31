@@ -33,7 +33,7 @@ class OrdenacaoTopologica:
         for vertice in g.V:
             if vertice.sucessores or vertice.antecessores:
                 self.ciclos = True
-                continue
+                break
 
 if __name__ == "__main__":
     ordem = OrdenacaoTopologica()
