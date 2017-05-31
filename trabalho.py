@@ -39,6 +39,11 @@ class Trabalho:
                 self.creditos = vertice.auxiliar
                 print("{0} ({1} créditos)".format(vertice, vertice.auxiliar))
 
+        # limpando os valores
+        self.creditos = 0
+        self.materias.clear()
+        self.dependencias_validas = True
+
 if __name__ == "__main__":
     print("{0} Ordenação topológica das matérias do curso {0}".format("-" * 5))
     OrdenacaoTopologica(curso).printar()
