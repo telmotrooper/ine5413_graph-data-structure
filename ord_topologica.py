@@ -10,6 +10,7 @@ class OrdenacaoTopologica:
 
     L = None
     S = None
+    ciclos = False
 
     def __init__(self):
         self.L = list()  # lista que irá conter os elementos ordenados
@@ -28,9 +29,17 @@ class OrdenacaoTopologica:
                 if not m.antecessores:
                     self.S.add(m)
 
+        # checa se o grafo contém ciclos
+        for vertice in g.V:
+            if vertice.sucessores or vertice.antecessores:
+                self.ciclos = True
+                continue
 
 if __name__ == "__main__":
     ordem = OrdenacaoTopologica()
 
-    for vertice in ordem.L:
-        print(vertice)
+    if ordem.ciclos:
+        print("O grafo contém pelo menos um ciclo, logo é impossível obter uma ordenação topológica válida.")
+    else:
+        for vertice in ordem.L:
+            print(vertice)

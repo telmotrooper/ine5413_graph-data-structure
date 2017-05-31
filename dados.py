@@ -100,13 +100,7 @@ INE5413.conecta(INE5430)
 INE5416.conecta(INE5430)
 INE5417.conecta(INE5453)
 INE5407.conecta(INE5428)
-INE5403.conecta(INE5429)
-INE5414.conecta(INE5429)
-INE5414.conecta(INE5431)
-INE5423.conecta(INE5432)
-INE5427.conecta(INE5433)
-INE5453.conecta(INE5433)
-INE5433.conecta(INE5434)
+
 
 # Adicionando os vértices no grafo
 g.adiciona_vertice(EEL5105)
