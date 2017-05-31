@@ -8,10 +8,12 @@ class OrdenacaoTopologica:
 
     L = None
     S = None
+    restauracao = None
     ciclos = False
 
     def __init__(self, g):
         self.L = list()  # lista que irá conter os elementos ordenados
+        self.restauracao = dict()  # dicionário que será utilizado para restaurar as conexões removidas pelo algoritmo
         self.S = set()  # conjunto que irá conter todos os vértices sem arestas de entrada
 
         for vertice in g.V:
@@ -24,6 +26,7 @@ class OrdenacaoTopologica:
 
             for m in n.sucessores.copy():
                 n.desconecta(m)  # remove a aresta do vértice
+                self.restauracao[n] = m
                 if not m.antecessores:
                     self.S.add(m)
 
@@ -32,6 +35,10 @@ class OrdenacaoTopologica:
             if vertice.sucessores or vertice.antecessores:
                 self.ciclos = True
                 break
+
+        # restaura as conexões removidas
+        for entrada in self.restauracao:
+            entrada.conecta(self.restauracao[entrada])
 
     def printar(self):
         if not self.ciclos:

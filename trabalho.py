@@ -17,22 +17,23 @@ class Trabalho:
 
     def distribuir_disciplinas(self, lista_ordenada):
         for vertice in lista_ordenada:
-            self.creditos += vertice.auxiliar
-
             # se algum dos antecessores do vértice está nesse
             # mesmo semestre, o vértice terá que ir para o próximo
             for antecessor in vertice.antecessores:
                 if antecessor in self.materias:
                     self.dependencias_validas = False
 
-            if self.creditos < self.maximo and self.dependencias_validas:
+            self.creditos += vertice.auxiliar
+
+            if self.creditos <= self.maximo and self.dependencias_validas:  # se a matéria pode entrar nesse semestre
                 self.materias.add(vertice)
                 print("{0} ({1} créditos)".format(vertice, vertice.auxiliar))
-            else:
+            else:  # se ela só pode entrar no próximo
                 print("-" * 5)
                 self.materias.clear()
                 self.materias.add(vertice)
                 self.creditos = vertice.auxiliar
+                self.dependencias_validas = True
                 print("{0} ({1} créditos)".format(vertice, vertice.auxiliar))
 
         # limpando os valores
