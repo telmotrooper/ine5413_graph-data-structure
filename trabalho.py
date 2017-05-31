@@ -18,21 +18,15 @@ class Trabalho:
         for vertice in lista_ordenada:
             self.creditos += vertice.auxiliar
 
-            if self.creditos < self.maximo:
-                # se algum dos antecessores do vértice está nesse
-                # mesmo semestre, o vértice terá que ir para o próximo
-                for antecessor in vertice.antecessores:
-                    if antecessor in self.materias:
-                        self.dependencias_validas = False
+            # se algum dos antecessores do vértice está nesse
+            # mesmo semestre, o vértice terá que ir para o próximo
+            for antecessor in vertice.antecessores:
+                if antecessor in self.materias:
+                    self.dependencias_validas = False
 
-                if self.dependencias_validas:
-                    self.materias.add(vertice)
-                    print("{0} ({1} créditos)".format(vertice, vertice.auxiliar))
-                else:
-                    print("-" * 5)
-                    self.materias.clear()
-                    self.creditos = vertice.auxiliar
-                    print("{0} ({1} créditos)".format(vertice, vertice.auxiliar))
+            if self.creditos < self.maximo and self.dependencias_validas:
+                self.materias.add(vertice)
+                print("{0} ({1} créditos)".format(vertice, vertice.auxiliar))
             else:
                 print("-" * 5)
                 self.materias.clear()
