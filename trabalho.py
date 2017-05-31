@@ -3,6 +3,7 @@ from dados.telmo import g as telmo
 from dados.gustavo import g as gustavo
 from ord_topologica import OrdenacaoTopologica
 
+
 class Trabalho:
     """Onde a mágica acontece"""
 
@@ -42,10 +43,14 @@ if __name__ == "__main__":
     print("{0} Ordenação topológica das matérias do curso {0}".format("-" * 5))
     OrdenacaoTopologica(curso).printar()
 
+    print("\n")
+
     t = Trabalho()
 
     print("{0} Ordenação topológica das matérias do curso não cursadas pelo Telmo (por semestre) {0}".format("-" * 5))
     t.distribuir_disciplinas(OrdenacaoTopologica(telmo).L)
+
+    print("\n")
 
     print("{0} Ordenação topológica das matérias do curso não cursadas pelo Gustavo (por semestre) {0}".format("-" * 5))
     t.distribuir_disciplinas(OrdenacaoTopologica(gustavo).L)
