@@ -24,7 +24,7 @@ class OrdenacaoTopologica:
             self.L.append(n)  # insira n em L
 
             for m in n.sucessores.copy():
-                n.desconecta(m)
+                n.desconecta(m)  # remove a aresta do vértice
                 if not m.antecessores:
                     self.S.add(m)
 
