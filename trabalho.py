@@ -15,10 +15,12 @@ class Trabalho:
         self.materias = set()
 
     def distribuir_disciplinas(self, lista_ordenada):
-        for vertice in lista_ordenada.copy():
+        for vertice in lista_ordenada:
             self.creditos += vertice.auxiliar
 
             if self.creditos < self.maximo:
+                # se algum dos antecessores do vértice está nesse
+                # mesmo semestre, o vértice terá que ir para o próximo
                 for antecessor in vertice.antecessores:
                     if antecessor in self.materias:
                         self.dependencias_validas = False
@@ -26,15 +28,13 @@ class Trabalho:
                 if self.dependencias_validas:
                     self.materias.add(vertice)
                     print("{0} ({1} créditos)".format(vertice, vertice.auxiliar))
-                    lista_ordenada.remove(vertice)
-
                 else:
                     print("-" * 5)
                     self.materias.clear()
                     self.creditos = vertice.auxiliar
                     print("{0} ({1} créditos)".format(vertice, vertice.auxiliar))
             else:
-                print("-"*5)
+                print("-" * 5)
                 self.materias.clear()
                 self.creditos = vertice.auxiliar
                 print("{0} ({1} créditos)".format(vertice, vertice.auxiliar))
@@ -50,8 +50,8 @@ if __name__ == "__main__":
 
     t = Trabalho()
 
-    print("{0} Ordenação topológica das matérias do curso não cursadas pelo Telmo {0}".format("-" * 5))
+    print("{0} Ordenação topológica das matérias do curso não cursadas pelo Telmo (por semestre) {0}".format("-" * 5))
     t.distribuir_disciplinas(OrdenacaoTopologica(telmo).L)
 
-    print("{0} Ordenação topológica das matérias do curso não cursadas pelo Gustavo {0}".format("-" * 5))
+    print("{0} Ordenação topológica das matérias do curso não cursadas pelo Gustavo (por semestre) {0}".format("-" * 5))
     t.distribuir_disciplinas(OrdenacaoTopologica(gustavo).L)
