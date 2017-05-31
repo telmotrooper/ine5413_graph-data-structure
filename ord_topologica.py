@@ -33,8 +33,9 @@ class OrdenacaoTopologica:
                 self.ciclos = True
                 break
 
-        if self.ciclos:
-            print("O grafo contém pelo menos um ciclo, logo é impossível obter uma ordenação topológica válida.")
-        else:
+    def printar(self):
+        if not self.ciclos:
             for vertice in self.L:
                 print(vertice)
+        else:
+            print("O grafo contém pelo menos um ciclo, logo é impossível obter uma ordenação topológica válida.")
